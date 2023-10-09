@@ -3,7 +3,7 @@ module "appstream_autoscaler" {
     version = "1.0.0"
 
     fleet_name        = "<fleet name>"
-    minumum_capacity  = 1
+    minimum_capacity  = 1
     maximum_capacity  = 1
 
     scale_out_off_peak = {
