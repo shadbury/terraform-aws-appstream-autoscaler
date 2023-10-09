@@ -53,5 +53,3 @@ Once the infrastructure is deployed, it will automatically scale the AppStream f
 
 # Author
 Joel Hutson
-
-Feel free to reach out with any questions or issues related to this repository.
