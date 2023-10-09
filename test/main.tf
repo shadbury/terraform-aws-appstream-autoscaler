@@ -1,10 +1,25 @@
 module "appstream_autoscaler" {
-    source = "../module"
+    source  = "shadbury/appstream-autoscaler/aws"
+    version = "1.0.0"
 
-    fleet_name          = local.workspace.fleet_name
-    scale_out_off_peak  = local.workspace["scale_out_off_peak"]
-    scale_out           = local.workspace["scale_out"]
-    scale_in            = local.workspace["scale_in"]
-    minimum_capacity    = local.workspace["minumum_capacity"]
-    maximum_capacity    = local.workspace["maximum_capacity"]
+    fleet_name        = "<fleet name>"
+    minumum_capacity  = 1
+    maximum_capacity  = 1
+
+    scale_out_off_peak = {
+        cron         = "0 18 ? * * *"
+        threshold     = 5
+        increment_by  = 5
+    }
+
+    scale_out = {
+        cron         = "0 6 ? * MON-FRI *"
+        threshold    = 7
+        increment_by = 1
+    }
+
+    scale_in = {
+        threshold    = 3
+        decrement_by = -1
+    }
 }
